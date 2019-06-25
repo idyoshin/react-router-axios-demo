@@ -1,24 +1,48 @@
 import React from 'react';
+import {List} from './List';
+import {ViewSingle} from "./ViewSingle"
 import logo from './logo.svg';
 import './App.css';
+
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    {
+      // Объявлем место где будут выводится наши компоненты под маршруты (Route) 
+    }
+
+
+    <Router>
+
+
+    {
+
+      // Навигации
+    }
+      <div>
+
+        <Link to="/list"> List </Link>
+
+      </div>
+
+
+
+
+      {
+
+        // Вывод приложения
+      }
+
+
+        <Route path="/list" exact component={List}></Route>
+      
+        <Route path="/single/:id" exact component={ViewSingle}></Route>
+      
+      </Router>
     </div>
   );
 }
